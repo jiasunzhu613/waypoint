@@ -1,6 +1,6 @@
 [package]
 name = "waypointctl"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Jonathan Zhu <jiasunzhu@gmail.com>"]
 description = "An alternative to pushd/popd"
