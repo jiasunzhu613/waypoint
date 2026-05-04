@@ -33,6 +33,6 @@ alias waypoint=__waypoint__
 
 ## Roadmap
 - [x] basic stack like pushd/popd (decide whether or not to mimic per-process design of pushd/popd)
-- [ ] list waypoints
+- [x] list waypoints
 - [ ] custom named waypoints
 - [ ] build feature to allow for traversal without explicit placement of waypoints (automatic waypoints)
