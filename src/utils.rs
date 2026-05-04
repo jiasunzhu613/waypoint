@@ -11,7 +11,7 @@ use serde_json::Result;
 
 #[derive(Serialize, Deserialize)]
 pub struct WaypointInfo {
-    pub stack: Vec<String>
+    pub stack: Vec<PathBuf>
 }
 
 // PathBuf is an owned value while Path is a borrowed view
@@ -78,20 +78,20 @@ fn write_waypoint_info(info: WaypointInfo) -> Result<()> {
     Ok(())
 }
 
-pub fn pushDirectory(dir: String) -> Result<()> {
+pub fn pushDirectory(dir: PathBuf) -> Result<()> {
     let mut waypoint_info: WaypointInfo = read_waypoint_info().unwrap(); // TODO: is this safe?
 
     let mut path = env::current_dir().unwrap();
     path.push(dir);
 
-    waypoint_info.stack.push(path.to_string_lossy().into_owned()); // TODO: change this?
+    waypoint_info.stack.push(path); // TODO: change this?
 
     write_waypoint_info(waypoint_info);
 
     Ok(())
 }
 
-pub fn popDirectory() -> String {
+pub fn popDirectory() -> PathBuf {
     let mut waypointInfo: WaypointInfo = read_waypoint_info().unwrap();
 
     let dir = match waypointInfo.stack.pop() {

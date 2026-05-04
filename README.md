@@ -1,3 +1,8 @@
+# Waypoint
+The modern alternative to pushd/popd built using Rust 🦀
+
+## Basic usage
+#### Waypoint stack
 ```
 waypoint . # stores current directory as last remembers portable waypoint
 
@@ -13,7 +18,7 @@ waypoint back # restores current working directory as last placed portable waypo
 
 ```sh
 # Add this to your .bashrc
-function _waypoint__() {
+function __waypoint__() {
   local result
 
   if [ "$1" = "back" ]; then
@@ -23,5 +28,11 @@ function _waypoint__() {
     waypoint-cli "$@"
   fi
 }
-alias waypoint=_waypoint__
+alias waypoint=__waypoint__
 ```
+
+## Roadmap
+- [x] basic stack like pushd/popd (decide whether or not to mimic per-process design of pushd/popd)
+- [ ] list waypoints
+- [ ] custom named waypoints
+- [ ] build feature to allow for traversal without explicit placement of waypoints (automatic waypoints)
