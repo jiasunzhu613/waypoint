@@ -16,14 +16,14 @@ pub struct WaypointInfo {
 // PathBuf is an owned value while Path is a borrowed view
 fn get_waypoint_file_path() -> PathBuf {
     let mut start = env::home_dir().unwrap();
-    start.push(env!("WAYPOINT_FILE"));
+    start.push(".waypoint/info.json");
 
     start
 }
 
 fn get_waypoint_dir() -> PathBuf {
     let mut start = env::home_dir().unwrap();
-    start.push(env!("WAYPOINT_DIR"));
+    start.push(".waypoint");
 
     start
 }
