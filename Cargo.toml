@@ -2,9 +2,17 @@
 name = "waypointctl"
 version = "0.1.0"
 edition = "2024"
+authors = ["Jonathan Zhu <jiasunzhu@gmail.com>"]
+description = "An alternative to pushd/popd"
+license = "MIT"
+repository = "https://github.com/jiasunzhu613/waypoint"
+homepage = "https://github.com/jiasunzhu613/waypoint"
+documentation = "https://github.com/jiasunzhu613/waypoint"
+readme = "README.md"
 
 [dependencies]
 anyhow = "1.0.102"
 clap = { version = "4.6.1", features = ["derive"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
+
