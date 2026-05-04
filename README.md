@@ -13,6 +13,12 @@ waypoint back # restores current working directory as last placed portable waypo
 ```
 
 ## Installation
+1. **Install `waypointctl` from cargo:**
+```
+cargo install waypointctl
+```
+
+2. **Set up shell function**
 > [!WARNING]
 > Currently only supports bash. Support for other shells is in progress
 
@@ -22,10 +28,10 @@ function __waypoint__() {
   local result
 
   if [ "$1" = "back" ]; then
-    result=$(waypoint-cli "$@")
+    result=$(waypointctl "$@")
     cd "$result"
   else
-    waypoint-cli "$@"
+    waypointctl "$@"
   fi
 }
 alias waypoint=__waypoint__
