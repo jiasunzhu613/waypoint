@@ -1,7 +1,6 @@
 use std::{env, fs};
 use std::fs::File;
 use std::io::prelude::*;
-use std::path::Path;
 use std::io::ErrorKind;
 use std::io::{Read, Seek, SeekFrom};
 use std::path::PathBuf;
@@ -30,7 +29,7 @@ fn get_waypoint_dir() -> PathBuf {
 }
 
 // todo: should this be wrapped with result?
-fn read_waypoint_info() -> Result<WaypointInfo> {
+pub fn read_waypoint_info() -> Result<WaypointInfo> {
     // Open file and construct it as a WaypointInfo structure
     let path = get_waypoint_file_path();
     let display = &path.display().to_string(); // gets actual file path
@@ -63,7 +62,7 @@ fn read_waypoint_info() -> Result<WaypointInfo> {
 }
 
 // File will always exist when writing
-fn write_waypoint_info(info: WaypointInfo) -> Result<()> {
+pub fn write_waypoint_info(info: WaypointInfo) -> Result<()> {
     let path = get_waypoint_file_path();
 
     let display = path.display(); // gets actual file path
