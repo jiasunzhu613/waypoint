@@ -25,7 +25,6 @@ pub enum Commands{
 }
 
 #[derive(Parser)]
-#[command()]
 pub struct Init {} // TODO
 
 #[derive(Parser)]
