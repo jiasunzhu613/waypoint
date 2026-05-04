@@ -1,11 +1,11 @@
-mod utils;
 mod cmd;
+mod utils;
 
+use clap::{Command, Parser, arg, value_parser};
 use std::path::PathBuf;
-use clap::{Command, arg, value_parser, Parser};
 
-use cmd::Base;
 use crate::cmd::Run;
+use cmd::Base;
 
 fn main() {
     let cli = Base::parse();
@@ -17,7 +17,7 @@ fn main() {
 
     // TODO: add handling for happy and sad paths
     match result {
-        Ok(_) => {},
+        Ok(_) => {}
         Err(why) => {}
     }
 }

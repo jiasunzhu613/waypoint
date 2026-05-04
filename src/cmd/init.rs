@@ -1,7 +1,6 @@
+use crate::cmd::{Init, Run};
 /// Used to initialize CLI setup in different shells
-
 use anyhow::Result;
-use crate::cmd::{Run, Init};
 
 impl Run for Init {
     fn run(&self) -> Result<()> {
@@ -10,9 +9,4 @@ impl Run for Init {
     }
 }
 
-impl Init {
-
-}
-
-
-
+impl Init {}

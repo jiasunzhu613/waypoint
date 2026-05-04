@@ -1,8 +1,7 @@
 /// Go back to last placed stack waypoint
-
 use anyhow::Result;
 
-use crate::cmd::{Run, Back};
+use crate::cmd::{Back, Run};
 use crate::utils;
 
 impl Run for Back {
@@ -13,7 +12,4 @@ impl Run for Back {
     }
 }
 
-impl Back {
-
-}
-
+impl Back {}

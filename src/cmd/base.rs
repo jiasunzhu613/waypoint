@@ -1,8 +1,7 @@
-/// Add stack waypoint
-
-use anyhow::Result;
-use crate::cmd::{Run, Base};
+use crate::cmd::{Base, Run};
 use crate::utils;
+/// Add stack waypoint
+use anyhow::Result;
 
 impl Run for Base {
     fn run(&self) -> Result<()> {
@@ -11,7 +10,4 @@ impl Run for Base {
     }
 }
 
-impl Base {
-
-}
-
+impl Base {}

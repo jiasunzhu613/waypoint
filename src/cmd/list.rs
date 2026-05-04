@@ -1,8 +1,7 @@
 /// Lists all existing waypoints
-
 use anyhow::Result;
 
-use crate::cmd::{Run, List};
+use crate::cmd::{List, Run};
 use crate::utils;
 
 impl Run for List {
@@ -23,8 +22,4 @@ impl Run for List {
     }
 }
 
-impl List {
-
-}
-
-
+impl List {}

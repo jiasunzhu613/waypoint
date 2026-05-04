@@ -1,16 +1,16 @@
-use std::{env, fs};
 use std::fs::File;
-use std::io::prelude::*;
 use std::io::ErrorKind;
+use std::io::prelude::*;
 use std::io::{Read, Seek, SeekFrom};
 use std::path::PathBuf;
+use std::{env, fs};
 
 use serde::{Deserialize, Serialize};
 use serde_json::Result;
 
 #[derive(Serialize, Deserialize)]
 pub struct WaypointInfo {
-    pub stack: Vec<PathBuf>
+    pub stack: Vec<PathBuf>,
 }
 
 // PathBuf is an owned value while Path is a borrowed view
@@ -34,14 +34,14 @@ pub fn read_waypoint_info() -> Result<WaypointInfo> {
     let path = get_waypoint_file_path();
     let display = &path.display().to_string(); // gets actual file path
 
-    // Use closure here to 
+    // Use closure here to
     let mut file = File::open(&path).unwrap_or_else(|error| {
         if error.kind() == ErrorKind::NotFound {
             fs::create_dir_all(get_waypoint_dir()).unwrap();
             let mut file = File::create_new(path).unwrap_or_else(|error| {
                 panic!("Problem creating file {error}");
             });
-            let s = serde_json::to_string(&WaypointInfo{stack: vec!()}).unwrap();
+            let s = serde_json::to_string(&WaypointInfo { stack: vec![] }).unwrap();
             file.write_all(s.as_bytes()).unwrap();
             file
         } else {
@@ -95,9 +95,9 @@ pub fn popDirectory() -> PathBuf {
 
     let dir = match waypointInfo.stack.pop() {
         None => panic!("No directory to pop to"),
-        Some(result) => result
+        Some(result) => result,
     };
-    
+
     write_waypoint_info(waypointInfo);
 
     dir
@@ -118,7 +118,7 @@ mod tests {
 
     // #[test]
     // fn test_write_waypoint_info() {
-    //     let info =  WaypointInfo { stack: vec!["~".to_string()] }; 
+    //     let info =  WaypointInfo { stack: vec!["~".to_string()] };
     //     let result = write_waypoint_info(info);
 
     //     assert!(result.is_ok());

@@ -1,11 +1,11 @@
-use std::path::PathBuf;
 use clap::{Parser, Subcommand, value_parser};
+use std::path::PathBuf;
 
 #[derive(Parser)]
 #[command(
-    version, 
-    about, 
-    long_about = None, 
+    version,
+    about,
+    long_about = None,
     args_conflicts_with_subcommands = true
 )]
 pub struct Base {
@@ -13,12 +13,11 @@ pub struct Base {
     pub path: Option<PathBuf>,
 
     #[command(subcommand)]
-    pub command: Option<Commands>
+    pub command: Option<Commands>,
 }
 
-
 #[derive(Subcommand)]
-pub enum Commands{
+pub enum Commands {
     Init(Init),
     Back(Back),
     List(List),
@@ -32,4 +31,3 @@ pub struct Back {} // TODO
 
 #[derive(Parser)]
 pub struct List {} // TODO
-

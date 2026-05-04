@@ -7,7 +7,6 @@ description = "An alternative to pushd/popd"
 license = "MIT"
 repository = "https://github.com/jiasunzhu613/waypoint"
 homepage = "https://github.com/jiasunzhu613/waypoint"
-documentation = "https://github.com/jiasunzhu613/waypoint"
 readme = "README.md"
 keywords = ["cli", "navigation", "pushd", "popd", "shell"]
 categories = ["command-line-utilities", "development-tools"]
